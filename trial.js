@@ -1,0 +1,6 @@
+const _prefix = "QOaCWHh9HONsrgWBrbb42x1PygKdEB5hq5tRIXlwOEMTh3QopMOV0xjshri72X.O/ha75Y6D0RezBaWacK0ErkKvqmEOWiMtkkCxKIuTBORSK3PWkIkvJPePLkaIdfcNRUPvebr0l0ftNtlrKDIy04FsvdXqPVUVB3nekKES3P8ateyVLe6FF2UDqtSAOPCN0YqZaJA0Uqfae0xwXACou/7yOrQtm.FsZrvi7T.0RsYOVWGJausuIiShZ9LOAeHYu8Qk7YvEOZdjG2SfOW6vwtLU/bZtCRIGbJs4j4eTYWVhrLteXsduC9xnKPzThiaUSSRrL68158Gr6li.btXeXvUUg9PFYEaKiZvIZVGtwJcqfEe";
+
+x = _prefix.substring(0,3) + 'PPP'
+console.log(x)
+y = x.substring(3)
+console.log(y)

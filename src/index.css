@@ -1,0 +1,589 @@
+:root{
+  --nav:rgb(225,225,225);
+  --second-nav:rgb(240,240,240);
+  --blacksmoke:rgb(25,25,25);
+  --display-background:white;
+  --black:black;
+  --white:white;
+  --item-hover:rgb(240,240,240);
+  --button2-hover:rgb(220,220,220);
+  --li-hover:rgb(50,50,50);
+  --li-hold:rgb(15,15,15);
+  --button-background:rgb(25,25,25);
+  --button-hover:rgba(255,255,255,80%);
+  --shadow: -0.3vh 0.3vh 1vh 0vh rgba(0, 0, 0, 0.6);
+  /*nav right*/
+  --nav-blue:rgb(0, 90, 150);
+  --nav-red:rgb(189, 20, 20);
+  --nav-gray:rgb(156, 156, 156);
+  --nav-gold:rgb(255,140,0);
+
+  --input-user-background:white;
+  --context:rgb(30,30,30);
+}
+body[darkmode=true]{
+  --nav:rgb(20,20,20);
+  --second-nav:rgb(30,30,30);
+  --blacksmoke:rgb(225,225,225);
+  --display-background:rgb(40,40,40);
+  --black:white;
+  --white:black;
+  --item-hover:rgb(55,55,55);
+  --li-hover:rgb(25,25,25);
+  --button2-hover:var(--li-hover);
+  --button-background:white;
+  --button-hover:rgba(0,0,0,80%);
+  --shadow: -0vh 0vh 0vh 0vh rgba(255, 255, 255, 0.2);
+  /*nav right*/
+  --nav-blue:rgb(6, 46, 73);
+  --nav-red:rgb(92, 5, 5);
+  --nav-gray:rgb(65, 65, 65);
+  --nav-gold:rgb(210,105,30);
+
+  --input-user-background:rgb(69,69,69);
+  --context:rgb(20,20,20);
+}
+
+#context{
+  min-width:0vh;
+  min-height:0vh;
+  max-width: fit-content;
+  position:absolute;
+  padding:0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  top:0;
+  right:0;
+  background-color:var(--nav);
+  box-shadow:-0.2vh 0.2vh 0.5vh 0vh rgba(0,0,0,60%);
+  cursor:pointer;
+  padding:1vh 0.5vh;
+  gap:0.25vh;
+}
+#context:empty{
+  display: none;
+}
+#context button{
+  display: block;
+  width:100%;
+  margin:0;
+  outline:none;
+  border:none;
+  background-color: rgba(0,0,0,0);
+  color:var(--black);
+  text-align: left;
+  transition:background-color .1s ease-out;
+  font-size: 1.6vh;
+  padding-top:0.6vh;
+  padding-right:4vh;
+  padding-bottom: 0.6vh;
+}
+#context button:hover{
+  background-color:rgba(255,255,255,20%);
+}
+#context hr{
+  all:unset;
+  width:100%;
+  margin:0;
+  padding:0;
+  border:0;
+  background-color: white;
+  height:0.15vh;
+  display: block;
+}
+
+body{
+  user-select: none;
+  overflow:hidden;
+  scroll-behavior: smooth;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin:0;
+  font-size: 3vh;
+}
+nav{
+  -webkit-app-region: drag;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  padding:1.5vh;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:8.7%;
+  background-color: var(--nav);
+  color:var(--black);
+  z-index: 5;
+}
+nav p, nav button{
+  -webkit-app-region: no-drag;
+}
+nav div{
+  -webkit-app-region: drag;
+}
+nav h1{
+  all:unset;
+  display: inline-block;
+  color:var(--black);
+}
+nav button{
+  border-radius: 0.4vh;
+  margin:0;
+  outline:none;
+  padding:1vh 1.2vh;
+  border:none;
+  width:fit-content;
+  height:fit-content;
+  background-color: rgba(0,0,0,0);
+  color:whitesmoke;
+  font-size: 2.5vh;
+  transition: transform;
+  display:inline-block;
+  cursor:pointer;
+  transition: background-color .1s ease-out;
+}
+nav #navleft #navbuttons button:hover{
+  background-color:rgba(255,255,255,20%);
+}
+
+main{
+  all:unset;
+  background-color: white;
+  display:block;
+  position:absolute;
+  bottom:0;
+  right:0;
+  min-width:100%;
+  width:100%;
+  min-height:90%;
+  height:91.3%;
+  z-index: 0;
+}
+main nav{
+  all:unset;
+  position:absolute;
+  left:0;
+  top:0;
+  height:100%;
+  width:10%;
+  background-color:var(--second-nav);
+  display:block;
+  overflow-x:auto;
+  overflow-y: auto;
+}
+main nav p{
+  margin:1vh;
+  font-size: 2.7vh;
+  color:var(--black)
+}
+main nav li{
+  overflow-wrap: break-word;
+  cursor:pointer;
+  list-style-type: none;
+  font-size: 2.4vh;
+  padding-left:1vh;
+  padding-top:0.5vh;
+  padding-bottom:0.5vh;
+  color:var(--blacksmoke);
+}
+main nav li:hover{
+  background-color: var(--li-hover);
+  color:white;
+}
+main nav li:active,
+main nav li.active,
+main nav li:focus{
+  background-color: var(--li-hold);
+  color:white;
+}
+main main{
+  overflow-y:hidden;
+  all:unset;
+  position:absolute;
+  left:10%;
+  top:0;
+  height:100%;
+  width:90%;
+}
+div.display{
+  color:var(--black);
+  position:absolute;
+  left:0;
+  top:0;
+  min-height:100%;
+  height:100%;
+  max-height:100%;
+  width:100%;
+  background-color: var(--display-background);
+  visibility: hidden;
+  display:block;
+  overflow-y: auto;
+  overflow-x:hidden;
+}
+div.display[selected]{
+  visibility: visible;
+}
+div.display.form{
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  padding:5vh;
+  font-size: 2.4vh;
+}
+div.display.form table{
+  width: 100%;
+}
+div.display.form input{
+  padding:0;
+  margin:0;
+  width:100%;
+  height:3vh;
+  outline:none;
+  font-size: 2.4vh;
+  border:none;
+  border-bottom: 0.15vh solid var(--black);
+  color:var(--black);
+  background-color:rgba(0,0,0,0)
+}
+div.display.form input.input_password{
+  width:95%;
+}
+div.display.form  button#show_password{
+  margin:0;
+  padding:1vh 2vh;
+  font-size: 2vh;
+  aspect-ratio: 1;
+  width:5vh;
+  border:none;
+  outline:none;
+  transition:box-shadow .1s ease-out;
+}
+div.display.form button#show_password:hover{
+  box-shadow:-0.2vh 0.2vh 0.5vh 0vh rgba(0,0,0,60%);
+}
+textarea {
+  padding:0;
+  margin:0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  resize: none;
+  width:100%;
+  height:40vh;
+  outline:none;
+  font-size: 2.4vh;
+  border:none;
+  border: 0.15vh solid var(--black);
+  color:var(--black);
+  background-color:rgba(0,0,0,0)
+}
+div.display.form .last{
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  position:absolute;
+  bottom:5%;
+  width:100%;
+  display:flex;
+  align-items: center;
+  justify-content:center;
+}
+table, tr, td, input{
+  margin:0;
+  padding:0;
+}
+tbody{
+  width: 100%;
+  height:100%;
+}
+div.display.form .last button{
+  font-size: 2.4vh;
+  outline:0;
+  border:0;
+  padding:1vh 2vh;
+  color:var(--white);
+  background-color: var(--button-background);
+  transition: transform .1s ease-in-out;
+  margin-left:0.5vh;
+  margin-right:0.5vh;
+  width:14vh;
+  cursor:pointer;
+  box-shadow:inset 0 0 0 0 var(--button-hover);
+  transition: box-shadow ease-in-out 0.2s;
+}
+div.display.form .last button:hover{
+  color:var(--black);
+  box-shadow: inset 15vh 0 0 0 var(--button-hover), -0.3vh 0.3vh 1vh 0vh rgba(0,0,0,10%);
+}
+nav #navlogo{
+  display: inline-block;
+  aspect-ratio: 1;
+  max-width:3.5vh;
+}
+nav #navlogo img{
+  aspect-ratio: 1;
+  min-width:3.5vh;
+  width:3.5vh;
+  max-width:3.5vh;
+  object-fit:scale-down;
+}
+nav #navleft{
+  display: inline-flex;
+  flex-direction: column;
+  transform:translateY(-15%)
+}
+nav #navright{
+  position:absolute;
+  right:2%;
+  display: inline-block;
+}
+
+nav #navleft #navname{
+  display:block;
+  font-size: 2.5vh;
+  flex-grow: 1;
+  margin:0;
+}
+nav #navleft #navname h1{
+  margin:0;
+}
+nav #navleft #navbuttons{
+  font-size: 1.8vh;
+  display:block;
+  flex-grow: 1;
+}
+nav #navleft #navbuttons button{
+  color:var(--black);
+  font-size: 1.8vh;
+}
+nav #navleft #navbuttons button:focus{
+  border-radius: 0;
+  background-color:rgba(0,0,0, 20%);
+}
+nav #navleft #navbuttons button+div{
+  margin:0;
+  padding:0.5vh;
+  position:absolute;
+  display: none;
+  background-color:var(--nav);
+  z-index: 50;
+}
+nav #navleft #navbuttons button+div hr{
+  all:unset;
+  width:100%;
+  margin:0;
+  padding:0;
+  border:0;
+  background-color: white;
+  height:0.15vh;
+  display: block;
+}
+nav #navleft #navbuttons button+div button{
+  display: block;
+  width:100%;
+  text-align: left;
+  border-radius: 0;
+  font-size: 1.6vh;
+  padding-top:0.6vh;
+  padding-right:4vh;
+  padding-bottom: 0.6vh;
+}
+nav #navleft #navbuttons button:focus+div,
+nav #navleft #navbuttons button:active+div{
+  display: block;
+}
+
+.list_duplicate{
+  padding:1vh;
+  display:flex;
+  cursor:pointer;
+  background-color: var(--display-background);
+}
+.list_duplicate:hover{
+  background-color:var(--item-hover);
+}
+.list_duplicate p{
+  font-size: 25px;
+  margin:0;
+  padding:0;
+  display:inline-block;
+  color:var(--black);
+  width: 100%;
+}
+.list_duplicate p.di_name{
+  font-family: consolas;
+  flex-grow: 50;
+}
+.list_duplicate p.di_username{
+  flex-grow: 2;
+}
+.list_duplicate p.di_password{
+  flex-grow: 1;
+}
+.list_duplicate p span{
+  font-family: consolas;
+  font-size:20px;
+  padding:2.5px 4px;
+  color:var(--blacksmoke);
+  background-color: var(--second-nav) ;
+}
+
+nav #navright button{
+  color:var(--black);
+  box-shadow:inset 0 0 0 0 rgba(255,255,255,20%);
+  transition: box-shadow ease-in-out 0.2s, background-color ease-in-out 0.2s;
+  outline:none;
+  width: 5vh;
+  font-size: 2vh;
+  aspect-ratio: 1;
+}
+nav #navright button:hover{
+  background-color: var(--nav-gold);
+  box-shadow: var(--shadow);
+}
+nav #navright button.gray:hover{
+  background-color:var(--nav-gray);
+  box-shadow:var(--shadow);
+}
+nav #navright button.red:hover{
+  background-color:var(--nav-red);
+  box-shadow:var(--shadow);
+}
+nav #navright button.blue:hover{
+  background-color:var(--nav-blue);
+  box-shadow:var(--shadow);
+}
+main.disabled,
+main.disabled *{
+  pointer-events: none;
+  filter:blur(0.5rem);
+}
+main.form{
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  padding:5vh;
+  font-size: 2.4vh;
+}
+
+
+
+main.form table{
+  width: 100%;
+}
+main.form input{
+  padding:0;
+  margin:0;
+  width:100%;
+  height:3vh;
+  outline:none;
+  font-size: 2.4vh;
+  border:none;
+  border-bottom: 0.15vh solid var(--black);
+  color:var(--black);
+  background-color:rgba(0,0,0,0)
+}
+main.form input:disabled{
+  color:var(--blacksmoke);
+  background-color: var(--second-nav);
+  user-select: none;
+  cursor:not-allowed;
+  font-style: italic;
+}
+main.form input.input_password{
+  width:95%;
+}
+main.form  button#show_password{
+  margin:0;
+  padding:1vh 2vh;
+  font-size: 2vh;
+  aspect-ratio: 1;
+  width:5vh;
+  border:none;
+  outline:none;
+  transition:box-shadow .1s ease-out;
+}
+main.form button#show_password:hover{
+  box-shadow:-0.2vh 0.2vh 0.5vh 0vh rgba(0,0,0,60%);
+}
+main.form .last{
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  position:absolute;
+  bottom:5%;
+  width:100%;
+  display:flex;
+  align-items: center;
+  justify-content:center;
+}
+main.form .last button{
+  font-size: 2.4vh;
+  outline:0;
+  border:0;
+  padding:1vh 2vh;
+  color:var(--white);
+  background-color: var(--button-background);
+  transition: transform .1s ease-in-out;
+  margin-left:0.5vh;
+  margin-right:0.5vh;
+  width:14vh;
+  cursor:pointer;
+  box-shadow:inset 0 0 0 0 var(--button-hover);
+  transition: box-shadow ease-in-out 0.2s;
+}
+main.form .last button:hover{
+  color:var(--black);
+  box-shadow: inset 15vh 0 0 0 var(--button-hover), -0.3vh 0.3vh 1vh 0vh rgba(0,0,0,10%);
+}
+main main nav{
+  position:absolute;
+  top:0;
+  left:0;
+  display:block;
+  width:100%;
+  height:7%;
+}
+main main nav button:hover, main main nav button:active{
+  color:var(--black);
+  background-color: var(--button2-hover);
+}
+main main main{
+  position:absolute;
+  top:7%;
+  left:0;
+  display:block;
+  width:100%;
+  height:93%;
+}
+main main nav *{
+  display: inline-block;
+}
+main main nav button{
+  color:var(--blacksmoke);
+}
+
+input[type=user]{
+  all:unset;
+  display:block;
+  z-index: 200;
+  position:absolute;
+  top:10%;
+  right:50%;
+  transform:translateX(50%);
+  width:50vh;
+  height:3vh;
+  font-size: 2.4vh;
+  box-shadow: -0.3vh 0.3vh 1vh 0vh rgba(0, 0, 0, 0.6);
+  background-color: var(--input-user-background);
+  color:var(--black);
+  border:0.3vh solid var(--input-user-background);
+  padding:1vh;
+  border-radius: 0.6vh;
+  visibility: hidden;
+}
+input[type=user]::placeholder{
+  color:var(--black);
+}
+main#maintheonepiece{
+  transition:filter .1s ease-out;
+}

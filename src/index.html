@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChiperLock</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body context darkmode="false">
+    <input id="userinput" onkeyup="__sumbit_input(event)" type="user" placeholder="Enter">
+    <menu id="context" style="visibility:hidden;"></menu>
+    <nav>
+        <div id="navlogo">
+            <img src="https://images.emojiterra.com/google/noto-emoji/v2.034/128px/1f511.png" alt="">
+        </div>
+        <div id="navleft">
+            <div id="navname">
+                <h1 id=".title">Didnt Chose A File</h1>
+            </div>
+            <div id="navbuttons">
+              <button>File</button>
+              <div>
+                  <button onmousedown="new_database()">New Database</button>
+                  <button onmousedown="edit_database()">Edit Database</button>
+                  <button onmousedown="open_database()">Open Database</button>
+                  <button onmousedown="save_database()">Save Database</button>
+                  <button onmousedown="save_database_as()">Save Database as</button>
+                  <button onmousedown="close_database()">Close Database</button>
+                  <hr>
+                  <button onmousedown="lock_database()">Lock Database</button>
+                  <button onmousedown="switch_keys()">Switch Keys</button>
+                  <button onmousedown="_import()">Import From Excel</button>
+                  <button onmousedown="_export()">Export To Excel</button>
+                  <button onmousedown="merge_database()">Merge</button>
+                  <hr>
+                  <button onmousedown="_close()">Close</button>
+              </div>
+              <button>Entries</button>
+              <div style="transform:translateX(5.90vh);">
+                  <button onmousedown="new_entry()">New Entry</button>
+                  <button onmousedown="edit_entry()">Edit Entry</button>
+                  <button onmousedown="clone_entry()">Clone Entry</button>
+                  <button onmousedown="delete_entry()">Delete Entry</button>
+                  <hr>
+                  <button onmousedown="copy_username()">Copy Username</button>
+                  <button onmousedown="copy_password()">Copy Password</button>
+              </div>
+              <button>Groups</button>
+              <div style="transform:translateX(14.4vh);">
+                  <button onmousedown="new_group()">New Group</button>
+                  <button onmousedown="edit_group()">Edit Group</button>
+                  <button onmousedown="clone_group()">Clone Group</button>
+                  <button onmousedown="delete_group()">Delete Group</button>
+              </div>
+              <button>Tools</button>
+              <div style="transform:translateX(23.1vh);">
+                  <button onmousedown="tools_themes()">Themes</button>
+                  <button onmousedown="tools_emailus()">Email Us</button>
+                  <button onmousedown="app.developer.opentools();">Developer</button>
+              </div>
+            </div>
+        </div>
+        <div id="navright">
+          <button onclick="app.window.minimize()" class="gray">➖</button>
+          <button onclick="app.window.screen()" class="blue" style="font-weight:bolder;">🖵</button>
+          <button onclick="_close()" class="red">❌</button>
+        </div>
+    </nav>
+    <main id="maintheonepiece">
+        <nav id="10">
+            <p>Groups</p>
+        </nav>
+        <main context id=".dataviewer">
+            <nav>
+                <p id=".group_name_title" style="font-style: italic; padding-left:2vh;">Group Name</p>
+                <p>| </p>
+                <div class="buttons">
+                  <button onclick="new_entry();">New Entry</button>
+                  <button onclick="edit_entry()">Edit Entry</button>
+                  <button onclick="clone_entry()">Clone Entry</button>
+                  <button onclick="delete_entry()">Delete Entry</button>  
+                </div>
+            </nav>
+            <main >
+              <div id="duplicate_entry_11" class="list_duplicate" style="display:none;">
+                <p class="di_name"></p>
+                <p class="di_username"><span>username:</span></p>
+                <p class="di_password"><span>password:</span></p>
+              </div>
+                <div context class="display" selected id="11">
+                </div>
+                
+                <div context class="display form" id="12">
+                    <table>
+                        <tr>
+                            <td>Enter Title: </td>
+                            <td><input type="text" id="e/title"></td>
+                        </tr>
+                        <tr>
+                            <td>Enter Username: </td>
+                            <td><input type="text" id="e/username"></td>
+                        </tr>
+                        <tr>
+                            <td>Enter Password: </td>
+                            <td><input class="input_password" id="e/password" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Enter Url: </td>
+                            <td><input type="text" id="e/url"></td>
+                        </tr>
+                    </table>
+                    <p>Enter Description: </p>
+                    <textarea name="" id="e/description" cols="30" rows="10"></textarea>
+                    <div class="last">
+                        <button id=".entry.cancel">cancel</button>
+                        <button id=".entry.save">save</button>
+                    </div>
+                </div>
+            </main>
+        </main>
+        
+    </main>
+    <main context contextmenu="" id=".databaselog" class="form" style="visibility: hidden;">
+        <table>
+            <tr>
+                <td>Database Name: </td>
+                <td><input id="d/name" type="text"></td>
+            </tr>
+            <tr>
+                <td>Database Location: </td>
+                <td><input id="d/location" type="text"></td>
+            </tr>
+            <tr>
+                <td>Database Password: </td>
+                <td><input id="d/password" type="text"></td>
+            </tr>
+        </table>
+        <p>Database Description: </p>
+        <textarea id="d/description" name="" id="" cols="30" rows="10"></textarea>
+        <div class="last">
+            <button id=".data.cancel">cancel</button>
+            <button id=".data.save">save</button>
+        </div>
+    </main>
+</body>
+</html>
